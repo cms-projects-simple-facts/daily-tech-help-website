@@ -1,0 +1,80 @@
+:root, [data-bs-theme=light] {
+  --bs-light-border-subtle: #1b1b1b;
+  --bs-secondary-rgb:237,247,250;
+  --enable-negative-margins: true;
+}
+
+.navbar {
+  --bs-navbar-toggler-icon-bg:url("./images/icons/hamburger.svg");
+}
+
+.nav-link {
+  font-weight: 600;
+}
+
+.nav-link {
+  transition: color 0.2s ease-in-out;
+}
+.nav-link .page-main {
+  background-color: #000 !important;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.nav-link .bg-dark-gray {
+  background-color: #1b1b1b !important;
+}
+
+.bg-dark-gray {
+  background-color: #1b1b1b !important;
+}
+
+@media (min-width: 992px) {
+  .home-banner {
+    padding-top: 9rem !important;
+    padding-bottom: 9rem !important;
+  }
+}
+
+@font-face {
+  font-family: heebo-regular;
+  src: url("./fonts/Heebo/static/Heebo-Regular.ttf");
+}
+@font-face {
+  font-family: heebo-bold;
+  src: url("./fonts/Heebo/static/Heebo-Bold.ttf");
+}
+body {
+  font-family: heebo-regular, sans-serif;
+  font-size: 15px;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+.heebo-bold {
+  font-family: heebo-bold, sans-serif;
+}
+
+.text-light {
+  color: #9C9C9C !important;
+}
+
+.ms-n3 {
+  margin-left: -2rem !important;
+}
+
+.ms-n4 {
+  margin-left: -3rem !important;
+}
+
+@media (min-width: 992px) {
+  .ms-lg-n4 {
+    margin-left: -3rem !important;
+  }
+}
+.fs--1 {
+  font-size: 0.9rem !important;
+}/*# sourceMappingURL=custom.css.map */
