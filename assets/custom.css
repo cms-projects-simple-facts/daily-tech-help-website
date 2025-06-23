@@ -121,3 +121,6 @@ html {
 .pt-6{
   padding-top:6rem !important;
 }
+.z-max{
+    z-index:999 !important;
+}
