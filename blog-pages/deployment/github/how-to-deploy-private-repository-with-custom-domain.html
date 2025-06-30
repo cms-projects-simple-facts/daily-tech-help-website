@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Learn how to deploy a private GitHub repository using GitHub Pages and link it to a custom domain. Step-by-step SEO-friendly guide with DNS setup and GitHub Actions alternative." />
+  <meta name="keywords" content="GitHub Pages, Private Repository, Deploy Private Repo, GitHub Custom Domain, GitHub DNS Setup, GitHub HTTPS, GitHub Actions Static Site" />
+  <meta name="author" content="Your Name" />
+  <title>Deploy Private GitHub Repo with Custom Domain</title>
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+  <link href="../../../assets/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      padding-top: 4rem;
+      line-height: 1.8;
+    }
+    .code-box {
+      background-color: #f8f9fa;
+      border: 1px solid #dee2e6;
+      padding: 1rem;
+      margin: 1rem 0;
+      position: relative;
+      font-family: monospace;
+    }
+    .copy-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+    h1, h2 {
+      color: #6685b5;
+    }
+  </style>
+</head>
+<body class="pt-9">
+             <div class="shadow fixed-top z-max bg-white">
+          <nav class="navbar navbar-expand-lg container-lg">
+            <div class="container-fluid">
+              <a class="navbar-brand text-primary fs-4 fw-bold" href="/">Daily Tech Help</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon text-white"></span>
+              </button>
+              <div class="collapse navbar-collapse navbar-light" id="navbarNav">
+                <ul class="navbar-nav ms-lg-auto align-items-center">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/">Home</a>
+                  </li>
+                  <li>
+                    <a href="https://www.facebook.com/profile.php?id=61574216155418" class="mt-4"><i class="fa-brands fa-facebook"></i></a>
+                </li>
+                  <!-- <li class="nav-item">
+                    <a class="nav-link" href="#">Blog</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                  </li> -->
+                </ul>
+              </div>
+            </div>
+          </nav>
+         </div>
+  <div class="container pt-4">
+    <h1 class="mb-4">How to Deploy a Private GitHub Repository with a Custom Domain</h1>
+    
+    <p class="lead">Learn how to host a static site from a private GitHub repository using GitHub Pages and map it to your custom domain. Ideal for developers using GitHub Pro or Team plans.</p>
+    
+    <hr>
+
+    <h2>🔒 Step 1: Upgrade to GitHub Pro or Team</h2>
+    <p>GitHub Pages for private repositories requires a paid plan. Visit <a href="https://github.com/pricing" target="_blank">GitHub Pricing</a> and upgrade to <strong>Pro</strong>, <strong>Team</strong>, or <strong>Enterprise</strong>.</p>
+
+    <h2>📁 Step 2: Set Up Your Repository</h2>
+    <p>Your private repo should have the site files structured like:</p>
+    <ul>
+      <li><code>index.html</code> at the root or inside a <code>/docs</code> folder</li>
+      <li>Commit all assets and push to GitHub</li>
+    </ul>
+
+    <h2>⚙️ Step 3: Enable GitHub Pages</h2>
+    <p>In your repo:</p>
+    <ol>
+      <li>Go to <strong>Settings > Pages</strong></li>
+      <li>Select <strong>Deploy from a branch</strong></li>
+      <li>Choose the branch (e.g., <code>main</code>) and folder (<code>/</code> or <code>/docs</code>)</li>
+    </ol>
+    <div class="code-box">
+      <button class="btn btn-sm btn-outline-primary copy-btn" onclick="copyText(this)">Copy</button>
+      https://&lt;your-username&gt;.github.io/&lt;repo-name&gt;/
+    </div>
+
+    <h2>🌐 Step 4: Add Your Custom Domain</h2>
+    <p>Still in the GitHub Pages settings, scroll to the <strong>Custom domain</strong> section and enter your domain (e.g., <code>www.example.com</code>). This will create a <code>CNAME</code> file in your repository automatically.</p>
+
+    <h2>🧭 Step 5: Configure DNS</h2>
+    <p>In your domain registrar dashboard (e.g., GoDaddy, Namecheap):</p>
+    <h5>CNAME for Subdomain (like www):</h5>
+    <div class="code-box">
+      <button class="btn btn-sm btn-outline-primary copy-btn" onclick="copyText(this)">Copy</button>
+      www.example.com → yourusername.github.io
+    </div>
+
+    <h5>A Records for Root Domain (like example.com):</h5>
+    <ul>
+      <li>185.199.108.153</li>
+      <li>185.199.109.153</li>
+      <li>185.199.110.153</li>
+      <li>185.199.111.153</li>
+    </ul>
+    <h5>set AAAA Records</h5>
+    <ul>
+       <li>2606:50c0:8000::153</li>
+       <li>2606:50c0:8001::153</li> 
+       <li>2606:50c0:8002::153</li> 
+       <li>2606:50c0:8003::153</li> 
+    </ul>
+    <p>Allow time for DNS propagation (usually 15 mins to a few hours).</p>
+
+    <h2>🔐 Step 6: Force HTTPS for Better Security</h2>
+    <p>Once the custom domain is detected and DNS is ready, GitHub will issue a free SSL certificate. Enable <strong>"Enforce HTTPS"</strong> in the GitHub Pages settings to secure your site.</p>
+    <p>This step ensures your site loads over <code>https://</code> with encryption, boosting SEO and security.</p>
+
+    <h2>🛠️ Alternative: Deploy Using GitHub Actions</h2>
+    <p>Don’t want to expose your entire private repo? Use GitHub Actions to build and push only your static files to a <code>gh-pages</code> branch:</p>
+
+    <h5>Workflow Strategy:</h5>
+    <ol>
+      <li>Keep full code in <code>main</code> (private)</li>
+      <li>Build your static site using a CI/CD pipeline (e.g., <code>npm run build</code>)</li>
+      <li>Deploy the final output (e.g., <code>dist/</code>) to a public <code>gh-pages</code> branch</li>
+    </ol>
+
+    <p>Here’s a basic GitHub Actions workflow:</p>
+    <div class="code-box">
+      <button class="btn btn-sm btn-outline-primary copy-btn" onclick="copyText(this)">Copy</button>
+<pre><code>name: Deploy Static Site
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Build Site
+        run: |
+          npm install
+          npm run build
+      - name: Deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist</code></pre>
+    </div>
+
+    <p>This keeps your source private while hosting only the output folder.</p>
+
+    <hr>
+    <p class="text-muted invisible">📌 SEO Tags: GitHub Pages Private Repo, Deploy with Custom Domain, GitHub Actions for Static Hosting, Force HTTPS GitHub Pages, Secure GitHub Custom Domain</p>
+  </div>
+
+  <script>
+    function copyText(btn) {
+      const text = btn.parentElement.textContent.trim();
+      navigator.clipboard.writeText(text).then(() => {
+        btn.textContent = "Copied!";
+        setTimeout(() => (btn.textContent = "Copy"), 1500);
+      });
+    }
+  </script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script> -->
+</body>
+</html>
