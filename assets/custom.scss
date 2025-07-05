@@ -2,6 +2,7 @@
 --bs-light-border-subtle: #1b1b1b;
 --bs-secondary-rgb:237,247,250;
 --enable-negative-margins: true;
+--bs-nav-pills-link-active-bg:var(--bs-primary-rgb)!important;
 }
 .navbar {
     --bs-navbar-toggler-icon-bg:url('./images/icons/hamburger.svg');
@@ -14,6 +15,9 @@
     // &:hover{
     //     color:white !important
     // }
+}
+.nav-pills{
+    --bs-nav-pills-link-active-bg:var(--bs-primary-rgb)!important;
 }
 // .nav-link{
     // --bs-nav-link-color: #9c9c9c !important;

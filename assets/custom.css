@@ -2,6 +2,7 @@
   --bs-light-border-subtle: #1b1b1b;
   --bs-secondary-rgb:237,247,250;
   --enable-negative-margins: true;
+  --bs-nav-pills-link-active-bg:var(--bs-primary-rgb)!important;
 }
 
 .navbar {
@@ -10,6 +11,10 @@
 
 .nav-link {
   font-weight: 600;
+}
+
+.nav-pills {
+  --bs-nav-pills-link-active-bg:var(--bs-primary-rgb)!important;
 }
 
 .page-main {
@@ -111,16 +116,8 @@ html {
   --bs-btn-disabled-bg: transparent;
   --bs-btn-disabled-border-color: #3cb043;
   --bs-gradient: none;
+}
+
+.z-max {
+  z-index: 999 !important;
 }/*# sourceMappingURL=custom.css.map */
-
-.pos-ft{
-  position: fixed;
-  top: 0;
-}
-
-.pt-6{
-  padding-top:6rem !important;
-}
-.z-max{
-    z-index:999 !important;
-}
