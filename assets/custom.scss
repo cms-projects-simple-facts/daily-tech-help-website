@@ -7,6 +7,19 @@
 .navbar {
     --bs-navbar-toggler-icon-bg:url('./images/icons/hamburger.svg');
 }
+@font-face {
+    font-family: 'open-sans-regular';
+    src: url("./fonts/Open_Sans/static/OpenSans-Regular.ttf");
+}
+body{
+    font-family: 'open-sans-regular', sans-serif;
+    font-size: 15px;
+}
+*{
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+}
 .nav-link{
     // --bs-nav-link-color: #9c9c9c !important;
     // --bs-navbar-active-color: white;
@@ -133,4 +146,13 @@ html{
 }
 .z-max{
     z-index:999 !important;
+}
+.card-img-container{
+    display: flex;
+    align-items: center;
+    min-height: 15rem;
+    max-height: 16rem;
+}
+.cursor-pointer{
+    cursor: pointer;
 }
