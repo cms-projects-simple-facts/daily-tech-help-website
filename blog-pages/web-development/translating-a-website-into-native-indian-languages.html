@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How to Translate a Website into Indian Languages</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      line-height: 1.8;
+      padding-bottom: 50px;
+    }
+    h1, h2 {
+      color: #2c3e50;
+    }
+    code {
+      background-color: #f4f4f4;
+      padding: 3px 6px;
+      border-radius: 4px;
+    }
+    .lang-demo {
+      margin-top: 20px;
+    }
+    .highlight {
+      background-color: #e7f3fe;
+      padding: 10px;
+      border-left: 5px solid #2196f3;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container mt-5">
+  <h1 class="mb-4">🌐 How to Translate a Website into Indian Languages</h1>
+
+  <p class="lead">Adding multilingual support to your website helps you reach a wider audience. In India, it's essential to support languages like Hindi, Tamil, Malayalam, and others to make your content accessible and inclusive. Here are the main methods to do it.</p>
+
+  <hr>
+
+  <h2>🛠️ Method 1: Google Translate Widget (Quick & Easy)</h2>
+  <p>This is the fastest way to enable language translation without writing multiple language versions of your site.</p>
+
+  <div class="highlight">
+    <p><strong>Step 1:</strong> Add the following code in your HTML where you want the language selector to appear:</p>
+    <pre><code>&lt;div id="google_translate_element"&gt;&lt;/div&gt;</code></pre>
+
+    <p><strong>Step 2:</strong> Add this script before the closing <code>&lt;/body&gt;</code> tag:</p>
+    <pre><code>
+&lt;script type="text/javascript"&gt;
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'en',
+      includedLanguages: 'en,hi,ml,ta,te,bn,gu,kn,mr,pa',
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+    }, 'google_translate_element');
+  }
+&lt;/script&gt;
+&lt;script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"&gt;&lt;/script&gt;
+    </code></pre>
+  </div>
+
+  <h2>✍️ Method 2: Manual Translation (For SEO & Quality)</h2>
+  <p>Manual translation offers better control and SEO benefits. You can create multiple HTML pages, each in a different language.</p>
+
+  <p><strong>Example:</strong> Create <code>index.html</code> for English, <code>index-hi.html</code> for Hindi, etc.</p>
+
+  <p>Add a dropdown menu to switch between languages:</p>
+
+  <div class="highlight">
+    <pre><code>
+&lt;select onchange="location = this.value;" class="form-select w-auto"&gt;
+  &lt;option value="index.html"&gt;English&lt;/option&gt;
+  &lt;option value="index-hi.html"&gt;हिन्दी&lt;/option&gt;
+  &lt;option value="index-ml.html"&gt;മലയാളം&lt;/option&gt;
+  &lt;option value="index-ta.html"&gt;தமிழ்&lt;/option&gt;
+&lt;/select&gt;
+    </code></pre>
+  </div>
+
+  <p>You must translate each page's content manually or with the help of translators or tools like Google Translate (carefully edited).</p>
+
+  <h2>🌍 Indian Language Codes</h2>
+  <p>Here are the standard language codes used in HTML or APIs:</p>
+
+  <table class="table table-bordered">
+    <thead class="table-light">
+      <tr>
+        <th>Language</th>
+        <th>Code</th>
+        <th>Native Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Hindi</td><td><code>hi</code></td><td>हिन्दी</td></tr>
+      <tr><td>Tamil</td><td><code>ta</code></td><td>தமிழ்</td></tr>
+      <tr><td>Malayalam</td><td><code>ml</code></td><td>മലയാളം</td></tr>
+      <tr><td>Telugu</td><td><code>te</code></td><td>తెలుగు</td></tr>
+      <tr><td>Bengali</td><td><code>bn</code></td><td>বাংলা</td></tr>
+      <tr><td>Gujarati</td><td><code>gu</code></td><td>ગુજરાતી</td></tr>
+      <tr><td>Kannada</td><td><code>kn</code></td><td>ಕನ್ನಡ</td></tr>
+      <tr><td>Marathi</td><td><code>mr</code></td><td>मराठी</td></tr>
+      <tr><td>Punjabi</td><td><code>pa</code></td><td>ਪੰਜਾਬੀ</td></tr>
+    </tbody>
+  </table>
+
+  <h2>🔄 Live Language Selector Demo</h2>
+  <div class="lang-demo">
+    <select class="form-select w-auto" onchange="location = this.value;">
+      <option selected disabled>Select Language</option>
+      <option value="index.html">English</option>
+      <option value="index-hi.html">हिन्दी</option>
+      <option value="index-ta.html">தமிழ்</option>
+      <option value="index-ml.html">മലയാളം</option>
+    </select>
+  </div>
+
+  <h2 class="mt-5">✅ Summary</h2>
+  <ul>
+    <li><strong>For quick setup</strong>, use the Google Translate widget.</li>
+    <li><strong>For better SEO and control</strong>, create manually translated pages.</li>
+    <li>Use correct language codes to enable accurate translation.</li>
+    <li>Combine both methods if you want ease and accuracy.</li>
+  </ul>
+
+  <p class="mt-4"><em>Do you need help translating your existing content into Malayalam or setting this up on your website? Let me know!</em></p>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
